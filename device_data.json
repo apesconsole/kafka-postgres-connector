@@ -1,0 +1,2 @@
+{"deviceId": "device123", "deviceType": "sensor", "timestamp": "2024-10-20T12:00:00Z", "data": {"temperature": 22.5}}
+{"deviceId": "device456", "deviceType": "actuator", "timestamp": "2024-10-20T12:01:00Z", "data": {"status": "on"}}

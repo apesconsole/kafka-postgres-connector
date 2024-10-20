@@ -1,0 +1,93 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Kafka-Postgres-Connector",
+    "collectionId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+    "dateExported": "2024-10-20T18:11:51.162Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "aeedaa22-f7b7-4838-a279-4590d6bd86b7",
+            "colId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+            "containerId": "",
+            "name": "All Connectors",
+            "url": "http://localhost:8083/connectors",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-10-20T17:38:48.954Z",
+            "modified": "2024-10-20T17:39:18.393Z",
+            "headers": []
+        },
+        {
+            "_id": "2b0bc015-cc8d-4ac1-a4c8-8f7181dc302d",
+            "colId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+            "containerId": "",
+            "name": "iot-sensor-sink-connector - CREATE",
+            "url": "http://localhost:8083/connectors",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-10-20T15:34:30.719Z",
+            "modified": "2024-10-20T17:56:41.260Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"iot-sensor-sink-connector\",\n  \"config\": {\n    \"connector.class\": \"io.confluent.connect.jdbc.JdbcSinkConnector\",\n    \"tasks.max\": \"1\",\n    \"topics\": \"iot_data\",\n    \"connection.url\": \"jdbc:postgresql://localhost:5432/iot_data\",\n    \"connection.user\": \"postgres\",\n    \"connection.password\": \"postgres\",\n    \"auto.create\": \"false\",\n    \"auto.evolve\": \"true\",\n    \"insert.mode\": \"insert\",\n    \"pk.mode\": \"none\",\n    \"transforms\": \"FilterSensor,SetTableName\",\n    \"transforms.FilterSensor.type\": \"org.apache.kafka.connect.transforms.Filter\",\n    \"transforms.FilterSensor.predicate\": \"IsSensor\",\n    \"transforms.SetTableName.type\": \"org.apache.kafka.connect.transforms.RegexRouter\",\n    \"transforms.SetTableName.regex\": \".*\",\n    \"transforms.SetTableName.replacement\": \"iot_devices_sensor\",\n    \"predicates\": \"IsSensor\",\n    \"predicates.IsSensor.type\": \"org.apache.kafka.connect.transforms.predicates.TopicNameMatches\",\n    \"predicates.IsSensor.pattern\": \".*sensor.*\"\n  }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0aae90d1-cfda-42af-a952-9ea1e3ab77c5",
+            "colId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+            "containerId": "",
+            "name": "iot-actuator-sink-connector - CREATE",
+            "url": "http://localhost:8083/connectors",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-10-20T15:35:49.902Z",
+            "modified": "2024-10-20T17:56:40.423Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"iot-actuator-sink-connector\",\n  \"config\": {\n    \"connector.class\": \"io.confluent.connect.jdbc.JdbcSinkConnector\",\n    \"tasks.max\": \"1\",\n    \"topics\": \"iot_data\",\n    \"connection.url\": \"jdbc:postgresql://localhost:5432/iot_data\",\n    \"connection.user\": \"postgres\",\n    \"connection.password\": \"postgres\",\n    \"auto.create\": \"false\",\n    \"auto.evolve\": \"true\",\n    \"insert.mode\": \"insert\",\n    \"pk.mode\": \"none\",\n    \"transforms\": \"FilterSensor,SetTableName\",\n    \"transforms.FilterSensor.type\": \"org.apache.kafka.connect.transforms.Filter\",\n    \"transforms.FilterSensor.predicate\": \"IsActuator\",\n    \"transforms.SetTableName.type\": \"org.apache.kafka.connect.transforms.RegexRouter\",\n    \"transforms.SetTableName.regex\": \".*\",\n    \"transforms.SetTableName.replacement\": \"iot_devices_actuator\",\n    \"predicates\": \"IsActuator\",\n    \"predicates.IsActuator.type\": \"org.apache.kafka.connect.transforms.predicates.TopicNameMatches\",\n    \"predicates.IsActuator.pattern\": \".*actuator.*\"\n  }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "97674c6b-5ae1-4395-8284-6d98fdae9456",
+            "colId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+            "containerId": "",
+            "name": "iot-sensor-sink-connector - DELETE",
+            "url": "http://localhost:8083/connectors/iot-sensor-sink-connector",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-10-20T17:37:06.449Z",
+            "modified": "2024-10-20T17:38:17.937Z",
+            "headers": []
+        },
+        {
+            "_id": "67932a18-00b4-44ba-aa1e-6ca3311ed533",
+            "colId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+            "containerId": "",
+            "name": "iot-actuator-sink-connector - DELETE",
+            "url": "http://localhost:8083/connectors/iot-actuator-sink-connector",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-10-20T17:37:35.809Z",
+            "modified": "2024-10-20T17:38:31.146Z",
+            "headers": []
+        },
+        {
+            "_id": "18e660b0-52ae-485b-852f-41e09802cbc0",
+            "colId": "f3072ccf-bc84-4817-8b8a-85b83ac7d267",
+            "containerId": "",
+            "name": "Get Plugins",
+            "url": "http://localhost:8083/connector-plugins",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-10-20T18:02:50.405Z",
+            "modified": "2024-10-20T18:02:53.710Z",
+            "headers": []
+        }
+    ],
+    "ref": "dPljmaKvU8bTNG0CMPuhSo3FozBp_ba9e4ggaJji5PbJy9x-BHYZQ2rJiwwrtrBQ1D_ooECXfnIHoZYrpwTfcw"
+}
